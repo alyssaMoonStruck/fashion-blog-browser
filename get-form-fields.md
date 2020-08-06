@@ -109,7 +109,7 @@ Consider the following JavaScript example to break this down further:
 const data = {}
 
 data['book']['title'] = 'A book title our user gave us'
-data['movie']['title'] = 'A movie title our user gave us'
+data['']['title'] = 'A movie title our user gave us'
 console.log(data)
 /*
 {

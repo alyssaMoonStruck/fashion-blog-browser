@@ -15,8 +15,6 @@ const signInSuccess = function (data) {
     // store = data.user
     store.user = data.user
     $('#message').text('Successfully signed in!')
-    store
-    store.user.token
     $('#authenticated').show()
     $('#unauthenticated').hide()
 

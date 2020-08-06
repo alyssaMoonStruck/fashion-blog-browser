@@ -16,12 +16,19 @@ return $.ajax({
 
 const getAllArticles = function () {
 return $.ajax({
-    url: config.apiUrl + '/articles'
+    headers: {
+    Authorization: 'Bearer ' + store.user.token
+    },
+    url: config.apiUrl + '/articles',
+
 })
 }
 
 const getArticle = function (id) {
 return $.ajax({
+    headers: {
+        Authorization: 'Bearer ' + store.user.token
+    },
     url: config.apiUrl + '/articles' + id
 })
 }
@@ -29,6 +36,9 @@ return $.ajax({
 const deleteArticle = function (id) {
     var token = store.user.token
     return $.ajax({
+        headers: {
+            Authorization: 'Bearer ' + token 
+        },
         url: config.apiUrl + '/articles' + id
     })
 }

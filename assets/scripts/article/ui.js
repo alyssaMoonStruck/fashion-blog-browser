@@ -1,9 +1,11 @@
+
+
 const createArticleSuccess = function (response) {
     $('#message').text('article created! Yay!')
     // response: { article: { ..., title: '' } }
     const oneArticle = (`
         <h3>${response.article.title}</h3>
-        <h4>${response.article.director}</h4>
+        <h4>${response.article.text}</h4>
         <p>ID: ${response.article._id}</p>
         <p>Owner (User's ID): ${response.article.owner}</p>
     `)
@@ -19,7 +21,7 @@ const indexArticleSuccess = function (response) {
     response.articles.forEach(article => {
     const oneArticle = (`
         <h3>${article.title}</h3>
-        <h4>${article.director}</h4>
+        <h4>${article.text}</h4>
         <p>ID: ${article._id}</p>
         <p>Owner (User's ID): ${article.owner}</p>
         `)
@@ -38,7 +40,7 @@ const indexArticleFailure = function () {
 const showArticleSuccess = function (response) {
     const oneArticle = (`
         <h3>${response.article.title}</h3>
-        <h4>${response.article.director}</h4>
+        <h4>${response.article.text}</h4>
         <p>ID: ${response.article._id}</p>
         <p>Owner (User's ID): ${response.article.owner}</p>
     `)
@@ -55,7 +57,7 @@ const showArticleFailure = function () {
 const deleteArticleSuccess = function (response) {
     const oneArticle = (`
         <h3>${response.article.title}</h3>
-        <h4>${response.article.director}</h4>
+        <h4>${response.article.text}</h4>
         <p>ID: ${response.article._id}</p>
         <p>Owner (User's ID): ${response.article.owner}</p>
     `)

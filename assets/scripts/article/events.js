@@ -2,37 +2,37 @@ const getFormFields = require('../../../lib/get-form-fields')
 const api = require('./api')
 const ui = require('./ui')
 
-const onArticleCreate = function (event) {
+const onArticleCreate = (event)=> {
     event.preventDefault()
 const form = event.target
 const formData = getFormFields(form)
-api.articleCreate(formData)
+api.createArticle(formData)
     .then(ui.createArticleSuccess)
     .catch(ui.createArticleFailure)
 }
 
-const onArticleIndex = function (event) {
-api.articleIndex()
+const onArticleIndex =  (event)=> {
+api.getAllArticles()
     .then(ui.indexArticleSuccess)
     .catch(ui.indexArticleFailure)
 }
 
-const onArticleShow = function (event) {
+const onArticleShow =  (event) => {
 event.preventDefault()
 
 const form = event.target
 const formData = getFormFields(form)
-api.articleShow(formData.article.id)
-    .then(ui.showarticleSuccess)
-    .catch(ui.showarticleFailure)
+api.getArticle(formData.article.id)
+    .then(ui.showArticleSuccess)
+    .catch(ui.showArticleFailure)
 }
 
-const onArticleDelete = function(event) {
+const onArticleDelete = (event) => {
     event.preventDefault()
 
     const form = event.target
     const formData = getFormFields(form)
-    api.articleDelete(formData.article.id)
+    api.deleteArticle(formData.article.id)
         .then(ui.deleteArticleSuccess)
         .catch(ui.deleteArticleFailure)
 }

@@ -3,6 +3,9 @@ const api = require('./api')
 const getFormFields = require('../../../lib/get-form-fields')
 const ui = require('./ui')
 
+const articleEvent = require('../article/events')
+const articleApi = require('../article/api')
+
 const onSignUp = function(event) {
     event.preventDefault()
     const form = event.target
@@ -19,7 +22,11 @@ const onSignIn = function(event) {
     const formInfo = getFormFields(form)
 
     api.signIn(formInfo)
-        .then(ui.signInSuccess)
+        .then((res) => {
+            ui.signInSuccess(res)
+            articleApi.getAllArticles()
+            .then(articleEvent.onArticleIndex)
+        })
         .catch(ui.signInFailure)
 }
 
