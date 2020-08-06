@@ -1,7 +1,7 @@
 'use strict'
 const store = require('../store')
 
-const signUpSuccess = function (data) {
+const signUpSuccess = function (data) { console.log(data)
     $('form').trigger('reset')
     $('#message1').text('Successfully signed up!')
     store.user = data.user

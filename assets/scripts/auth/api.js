@@ -13,9 +13,6 @@ const signUp = function (formInfo) {
 }  
 
 const signIn = function (formInfo) {
-
-
-
     return $.ajax({
         url: config.apiUrl + '/sign-in',
         method: 'POST',
