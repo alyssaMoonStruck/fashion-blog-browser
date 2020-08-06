@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
     <head>
-      <title>Example</title>
+      <title>Blog</title>
       <meta name="viewport" content="width=device-width, initial-scale=1">
 
       <!-- Do not add `link` tags-->
@@ -12,6 +12,42 @@
       <script src="public/application.js" type="text/javascript" charset="utf-8" defer></script>
     </head>
     <body>
-      <h1>Browser Template</h1>
+      <h1>Fashion Blog</h1>
+      <p id="message"></p>
+      
+      <div id="unauthenticated">
+        <p id="message1"></p>
+        <form id="sign-up">
+          <input name="credentials[email]" placeholder="Email" type="text">
+          <input name="credentials[password]" placeholder="Password" type="password">
+          <input name="credentials[password_confirmation]" placeholder="Confirm Password" type="password">
+          <button type="submit">Sign Up</button>
+        </form>
+    
+    <br>
+    
+        <form id="sign-in">
+          <input name="credentials[email]" placeholder="Email" type="text">
+          <input name="credentials[password]" placeholder="Password" type="password">
+          <button type="submit">Sign In</button>
+        </form>
+      </div>
+  
+    
+        <footer >
+          <form id="change-password">
+            <input id="pass" name="passwords[old]" placeholder="Old Password" type="password">
+            <input id="pass1"name="passwords[new]" placeholder="New Password" type="password">
+            <button type="submit">Change Password</button>
+          </form>
+    
+          <br>
+    
+          <form id="sign-out">
+            <button type="click">Sign Out</button>
+          </form>
+    
+        </footer>
+      </div>
     </body>
 </html>
