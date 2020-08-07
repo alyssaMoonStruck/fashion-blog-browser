@@ -7,11 +7,11 @@ const onArticleCreate = (event)=> {
 const form = event.target
 const formData = getFormFields(form)
 api.createArticle(formData)
-    .then(ui.createArticleSuccess)
+    .then(onArticleIndex)
     .catch(ui.createArticleFailure)
 }
 
-const onArticleIndex =  (event)=> {
+const onArticleIndex =  ()=> {
 api.getAllArticles()
     .then(ui.indexArticleSuccess)
     .catch(ui.indexArticleFailure)
@@ -33,6 +33,7 @@ const onArticleDelete = (event) => {
     const form = event.target
     const formData = getFormFields(form)
     api.deleteArticle(formData.article.id)
+    $('.content').on('click', '#article-delete', onArticleDelete)
         .then(ui.deleteArticleSuccess)
         .catch(ui.deleteArticleFailure)
 }

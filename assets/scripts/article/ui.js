@@ -21,8 +21,8 @@ const indexArticleSuccess = function (response) {
     let articleHtml = ''
     response.articles.forEach(article => {
     const oneArticle = (`
-        <h3>${article.title}</h3>
-        <p>${limit(article.text, 40)}</p>
+        <h3>${limit(article.title, 15)}</h3>
+        <p>${limit(article.text, 30)}</p>
         <p>ID: ${article._id}</p>
         <p>Owner (User's ID): ${article.owner}</p>
         `)

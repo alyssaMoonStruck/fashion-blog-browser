@@ -9,6 +9,7 @@ const signUpSuccess = function (data) { console.log(data)
 
 const signUpFailure = function (error) {
     $('#authenticated').hide()
+    $('#log-out').hide()
     $('#message1').text('Failed to sign up')
 }
 
@@ -18,12 +19,14 @@ const signInSuccess = function (data) {
 
     $('#message').text('Successfully signed in!')
     $('#authenticated').show()
+    $('#log-out').show()
     $('#unauthenticated').hide()
 
 }
 
 const signInFailure = function (error) {
     $('#authenticated').hide()
+    $('#log-out').hide()
     $('#message1').text('Failed to sign in')
 }
 
@@ -41,6 +44,7 @@ const signOutSuccess = function (data) {
     $('#message1').text('Successfully signed out!')
     $('#unauthenticated').show()
     $('#authenticated').hide()
+    $('#log-out').hide()
 }
 
 const signOutFailure = function (error) {
@@ -48,6 +52,7 @@ const signOutFailure = function (error) {
     store
     store.user.token
     $('#authenticated').show()
+    $('#log-out').show()
     $('#unauthenticated').hide()
 }
 
