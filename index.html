@@ -24,36 +24,42 @@
           <button type="submit">Sign Up</button>
         </form>
     
-    <br>
-    
         <form id="sign-in">
           <input name="credentials[email]" placeholder="Email" type="text">
           <input name="credentials[password]" placeholder="Password" type="password">
           <button type="submit">Sign In</button>
         </form>
-      </div>
-  
-    
-        <footer >
-          <form id="change-password">
+      
+        <div id="authenticated">
+        <form id="change-password">
             <input id="pass" name="passwords[old]" placeholder="Old Password" type="password">
             <input id="pass1"name="passwords[new]" placeholder="New Password" type="password">
-            <button type="submit">Change Password</button>
-          </form>
-        
-          <form id="article-create">
-            <input type="text" name="article[title]" placeholder="article title">
-            <input type="text" name="article[text]" placeholder="article director">
-            <button type="submit">Create a article!</button>
-          </form>
-    
-          <br>
-    
+              <button type="submit">Change Password</button>
+        </form>
+
           <form id="sign-out">
             <button type="click">Sign Out</button>
           </form>
-    
-        </footer>
+        </div>
+
+        <div>
+          <form id="article-create">
+            <input type="text" name="article[title]" placeholder="Article Title">
+            <input id="blog-post" type="text" name="article[text]" placeholder="Article Text">
+            <button type="submit">Add an article!</button>
+          </form>
+        <form id="article-show">
+          <input placeholder="Article ID" type="text" name="article[id]">
+          <button type="submit">Find Article</button>
+        </form>
+        <form id="article-delete">
+          <input type="text" name="article[id]" placeholder="article id">
+          <button type="submit">Delete</button>
+        </form>
+        </div>
       </div>
+    
+      <div id="content"></div>
+    </div>
     </body>
 </html>

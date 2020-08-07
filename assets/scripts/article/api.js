@@ -20,6 +20,7 @@ return $.ajax({
     Authorization: 'Bearer ' + store.user.token
     },
     url: config.apiUrl + '/articles',
+    
 
 })
 }
@@ -29,7 +30,8 @@ return $.ajax({
     headers: {
         Authorization: 'Bearer ' + store.user.token
     },
-    url: config.apiUrl + '/articles' + id
+    url: config.apiUrl + '/articles' + id,
+    method: 'GET',
 })
 }
 

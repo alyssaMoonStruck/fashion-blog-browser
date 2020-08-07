@@ -1,4 +1,5 @@
 
+const limit = require('../../../lib/limit')
 
 const createArticleSuccess = function (response) {
     $('#message').text('article created! Yay!')
@@ -21,7 +22,7 @@ const indexArticleSuccess = function (response) {
     response.articles.forEach(article => {
     const oneArticle = (`
         <h3>${article.title}</h3>
-        <h4>${article.text}</h4>
+        <p>${limit(article.text, 40)}</p>
         <p>ID: ${article._id}</p>
         <p>Owner (User's ID): ${article.owner}</p>
         `)

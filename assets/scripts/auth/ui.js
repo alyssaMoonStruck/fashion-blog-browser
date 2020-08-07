@@ -8,12 +8,14 @@ const signUpSuccess = function (data) { console.log(data)
 }
 
 const signUpFailure = function (error) {
+    $('#authenticated').hide()
     $('#message1').text('Failed to sign up')
 }
 
 const signInSuccess = function (data) {
     // store = data.user
     store.user = data.user
+
     $('#message').text('Successfully signed in!')
     $('#authenticated').show()
     $('#unauthenticated').hide()
@@ -21,6 +23,7 @@ const signInSuccess = function (data) {
 }
 
 const signInFailure = function (error) {
+    $('#authenticated').hide()
     $('#message1').text('Failed to sign in')
 }
 
