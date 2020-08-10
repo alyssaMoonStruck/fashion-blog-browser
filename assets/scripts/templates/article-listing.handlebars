@@ -1,0 +1,21 @@
+<div class="form-group mt-4">
+  <input class="form-control" id="search-box" placeholder="Search.."/>
+  <button id="get-all" type="submit">Get All articles</button>
+</div>
+
+{{#each articles as |article|}}
+  <div class="card mb-4" style="width: 100%; ">
+    <div class="card-header">
+      <h3>{{limit article.title 15}}</h3>
+    </div>
+    <div class="card-body">
+      <p>{{limit article.text 30}}</p>
+      <sup>Owner: {{article.owner.email}}</sup>
+      <sup>ID: {{article._id}}</sup>
+    </div>
+    <div class="card-footer">
+        <button data-id="{{article._id}}" data-target="#editModal" data-toggle="modal" class="btn-sm btn-primary edit-article">Edit</button>
+        <button data-id="{{article._id}}" class="btn-sm btn-danger delete-article">Remove</button>
+    </div>
+  </div>
+{{/each}}

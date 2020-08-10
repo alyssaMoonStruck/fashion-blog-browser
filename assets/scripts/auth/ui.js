@@ -14,15 +14,14 @@ const signUpFailure = function (error) {
 }
 
 const signInSuccess = function (data) {
-    // store = data.user
     store.user = data.user
-
     $('#message').text('Successfully signed in!')
     $('#authenticated').show()
     $('#log-out').show()
     $('#unauthenticated').hide()
-
+    
 }
+
 
 const signInFailure = function (error) {
     $('#authenticated').hide()
@@ -51,9 +50,9 @@ const signOutFailure = function (error) {
     $('#message1').text('Failed to sign out')
     store
     store.user.token
-    $('#authenticated').show()
+    $('#authenticated').hide()
     $('#log-out').show()
-    $('#unauthenticated').hide()
+    $('#unauthenticated').show()
 }
 
 

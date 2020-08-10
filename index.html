@@ -26,25 +26,55 @@
       <h1>Fashion Blog</h1>
       <p id="message"></p>
       <div id="log-out">
+        <button
+          type="submit"
+          class="btn btn-secondary"
+          data-toggle="modal"
+          data-target="#mymodal"
+        >
+          Change Password
+        </button>
         <div class="row mb-3">
           <div class="col-sm-12">
-            <form id="change-password">
-              <input
-                id="pass"
-                name="passwords[old]"
-                placeholder="Old Password"
-                type="password"
-              />
-              <input
-                id="pass1"
-                name="passwords[new]"
-                placeholder="New Password"
-                type="password"
-              />
-              <button type="submit">Change Password</button>
-            </form>
+            <div class="modal fade" id="mymodal">
+              <div class="modal-dialog">
+                <form id="change-password">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <h3>Change Password</h3>
+                    </div>
+                    <div class="modal-body">
+                      <input
+                        id="pass"
+                        name="passwords[old]"
+                        placeholder="Old Password"
+                        type="password"
+                      />
+                      <input
+                        id="pass1"
+                        name="passwords[new]"
+                        placeholder="New Password"
+                        type="password"
+                      />
+                    </div>
+                    <div class="modal-footer">
+                      <button type="submit" class="btn btn-primary">
+                        Save changes
+                      </button>
+                      <button
+                        class="btn btn-default"
+                        data-dismiss="modal"
+                      >
+                        Close
+                      </button>
+                    </div>
+                  </div>
+                </form>
+              </div>
+            </div>
+
             <form id="sign-out">
-              <button type="click">Sign Out</button>
+              <button type="click" class="btn btn-secondary">Sign Out</button>
             </form>
           </div>
         </div>
@@ -59,21 +89,21 @@
           <div class="offset-sm-3 col-sm-6">
             <form id="sign-in" class="justify-content-center">
               <div class="input-group mb-3">
-              <input
-                name="credentials[email]"
-                placeholder="Email"
-                type="text"
-                class="form-control"
-              />
-            </div>
-            <div class="input-group mb-3">
-              <input
-                name="credentials[password]"
-                placeholder="Password"
-                type="password"
-                class="form-control"
-              />
-            </div>
+                <input
+                  name="credentials[email]"
+                  placeholder="Email"
+                  type="text"
+                  class="form-control"
+                />
+              </div>
+              <div class="input-group mb-3">
+                <input
+                  name="credentials[password]"
+                  placeholder="Password"
+                  type="password"
+                  class="form-control"
+                />
+              </div>
               <button type="submit" class="btn btn-primary">Sign In</button>
             </form>
           </div>
@@ -116,36 +146,63 @@
       </div>
     </div>
 
-    <div id="authenticated">
+    <div id="authenticated"> 
       <div class="container mt-3 justify-content-center">
         <div class="row">
-          <div class="col-md-6">
+          <div class="col-md-6 split">
             <form id="article-create">
-              <div class="input-group mb-3">
-              <input
-                type="text"
-                name="article[title]"
-                placeholder="Article Title"
-                class="form-control"
-              />
-            </div>
-            <div class="input-group mb-3">
-              <input
-                id="blog-post"
-                type="text"
-                name="article[text]"
-                placeholder="Article Text"
-                class="form-control"
-              />
-            </div>
-              <button type="submit">Add an article!</button>
+              <div class="form-group">
+                <label >Title</label>
+                <input
+                  type="text"
+                  name="article[title]"
+                  class="form-control"
+                />
+              </div>
+              <div class="form-group">
+                <label >Article Body</label>
+                <textarea class="form-control"  name="article[text]" rows="6"></textarea>
+              </div>
+              <button type="submit" class="btn btn-secondary">
+                Add Article!
+              </button>
             </form>
           </div>
-          <div class="col-md-6">
-            
-              <button type="submit" id="article-delete">Delete</button>
-            
+          <div class="col-md-6 split library">
             <div id="content"></div>
+
+            <div class="modal fade" id="editModal">
+              <div class="modal-dialog">
+                <form id="edit-form">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <h3>Edit Article</h3>
+                      <div class="form-group">
+                        <label>Title</label>
+                        <input id="title" name="title" class="form-control" type="text">
+                      </div>
+                      <div class="form-group">
+                        <label>Text</label>
+                        <textarea id="text" name="text" class="form-control"></textarea>
+                      </div>
+                      <input id="owner" name="owner" type="hidden">
+                      <input id="_id" name="_id" type="hidden" >
+                    <div class="modal-footer">
+                      <button type="submit" class="btn btn-primary">
+                        Save
+                      </button>
+                      <button
+                        class="btn btn-default"
+                        data-dismiss="modal"
+                      >
+                        Cancel
+                      </button>
+                    </div>
+                  </div>
+                </form>
+              </div>
+            </div>
+
           </div>
         </div>
       </div>

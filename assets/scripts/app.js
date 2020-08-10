@@ -11,16 +11,23 @@ $(() => {
   // your JS code goes here
   $('#authenticated').hide()
   $('#log-out').hide()
+  $('#get-all').hide()
 
   $('#sign-up').on('submit', authEvents.onSignUp)
   $('#sign-in').on('submit', authEvents.onSignIn)
   $('#change-password').on('submit', authEvents.onChangePassword)
+  
   $('#sign-out').on('submit', authEvents.onSignOut)
-
+  
+  
+  articleEvents.addHandler()
     // Article Listeners:
   $('#article-create').on('submit', articleEvents.onArticleCreate)
   $('#article-index').on('click', articleEvents.onArticleIndex)
   $('#article-show').on('submit', articleEvents.onArticleShow)
   $('#article-delete').on('click', articleEvents.onArticleDelete)
+  $('#edit-form').on('submit', articleEvents.onArticleEdit)
+
+  
 
 })

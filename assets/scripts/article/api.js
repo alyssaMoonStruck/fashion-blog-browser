@@ -3,7 +3,6 @@ const store = require('../store')
 
 
 const createArticle = function (formData) {
-console.log(store)
 return $.ajax({
     headers: {
     Authorization: 'Bearer ' + store.user.token
@@ -30,9 +29,24 @@ return $.ajax({
     headers: {
         Authorization: 'Bearer ' + store.user.token
     },
-    url: config.apiUrl + '/articles' + id,
+    url: config.apiUrl + '/articles/' + id,
     method: 'GET',
 })
+}
+
+const editArticle = function (formData) {
+    console.log(formData)
+    const article = { 
+        article: formData
+    }
+    return $.ajax({
+        headers: {
+            Authorization: 'Bearer ' + store.user.token
+        },
+        url: config.apiUrl + '/articles/' + formData._id,
+        method: 'PATCH',
+        data: article
+    })
 }
 
 const deleteArticle = function (id) {
@@ -41,14 +55,18 @@ const deleteArticle = function (id) {
         headers: {
             Authorization: 'Bearer ' + token 
         },
-        url: config.apiUrl + '/articles' + id
+        url: config.apiUrl + '/articles/' + id,
+        method: 'DELETE'
     })
 }
+
+
 
 module.exports = {
     createArticle,
     getAllArticles,
     getArticle,
-    deleteArticle
+    deleteArticle,
+    editArticle
 
 }
