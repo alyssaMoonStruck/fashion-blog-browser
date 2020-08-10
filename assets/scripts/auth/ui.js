@@ -1,24 +1,25 @@
 'use strict'
 const store = require('../store')
 
-const signUpSuccess = function (data) { console.log(data)
+const signUpSuccess = function (data) { 
+    $('#authenticated').hide()
+    $('#log-out').hide()
     $('form').trigger('reset')
-    $('#message1').text('Successfully signed up!')
+    $('#unauthenticatedMess').text('Successfully Signed Up!')
     store.user = data.user
 }
 
 const signUpFailure = function (error) {
-    $('#authenticated').hide()
-    $('#log-out').hide()
-    $('#message1').text('Failed to sign up')
+    $('#unauthenticatedMess').text('Failed to Sign Up')
 }
 
 const signInSuccess = function (data) {
     store.user = data.user
-    $('#message').text('Successfully signed in!')
+    $('#authenticatedMess').text('Successfully Signed In!')
     $('#authenticated').show()
     $('#log-out').show()
     $('#unauthenticated').hide()
+    
     
 }
 
@@ -26,33 +27,33 @@ const signInSuccess = function (data) {
 const signInFailure = function (error) {
     $('#authenticated').hide()
     $('#log-out').hide()
-    $('#message1').text('Failed to sign in')
+    $('#unauthenticatedMess').text('Failed to Sign In')
 }
 
 const changePasswordSuccess = function (data) {
     $('form').trigger('reset')
-    $('#message').text('Successfully changed password!')
+    $('#authenticatedMess').text('Successfully Changed Password!')
 }
 
 const changePasswordFailure = function (error) {
-    $('#message').text('Failed to change password')
+    $('#authenticatedMess').text('Failed to Change Password')
 }
 
 const signOutSuccess = function (data) {
     $('form').trigger('reset')
-    $('#message1').text('Successfully signed out!')
+    $('#unauthenticatedMess').text('Successfully Signed Out!')
     $('#unauthenticated').show()
     $('#authenticated').hide()
     $('#log-out').hide()
 }
 
 const signOutFailure = function (error) {
-    $('#message1').text('Failed to sign out')
+    $('#authenticatedMess').text('Failed to Sign Out')
     store
     store.user.token
-    $('#authenticated').hide()
-    $('#log-out').show()
-    $('#unauthenticated').show()
+    $('#authenticated').show()
+    $('#log-out').hide()
+    $('#unauthenticated').hide()
 }
 
 

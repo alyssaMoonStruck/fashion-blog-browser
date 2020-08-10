@@ -2,77 +2,74 @@
 const showArticleTemplate = require('../templates/article-listing.handlebars')
 
 
-const createArticleSuccess = function (response) {
-    $('#message').text('article created! Yay!')
-    // response: { article: { ..., title: '' } }
-    const oneArticle = (`
-        <h3>${response.article.title}</h3>
-        <h4>${response.article.text}</h4>
-        <p>ID: ${response.article._id}</p>
-        <p>Owner (User's ID): ${response.article.owner}</p>
-    `)
-    $('#content').html(oneArticle)
-    $('form').trigger('reset')
-}
-
-const createArticleFailure = function (error) {
-    console.log(error)
-    $('#message').text('article was not created')
-}
-
+//Index
 const indexArticleSuccess = function (response) {
     const showArticleHtml = showArticleTemplate({ articles: response.articles })
     $('#content').html(showArticleHtml)
+    $('#message').text('Found all Articles!')
+
 }
 
 const indexArticleFailure = function () {
-    $('#message').text('Index articles failed')
+    $('#authenticatedMess').text('Could not get all Articles')
 }
 
+//Create
+const createArticleSuccess = function (response) {
+    const showArticleHtml = showArticleTemplate({ articles: response.articles })
+    $('#content').html(showArticleHtml)
+    $("#article-create").trigger('reset')
+    $('#authenticatedMess').text('Article Created!')
+}
+
+const createArticleFailure = function (error) {
+    $('#authenticatedMess').text('Article was not Created')
+}
+
+//Get One
 const showArticleSuccess = function (response) {
     const showArticleHtml = showArticleTemplate({ articles: [response.article]})
     $('#content').html(showArticleHtml)
-    $('#get-all').show()
+    $('#authenticatedMess').text('Article Found!')
+
 }
 
 const showArticleFailure = function () {
-    $('#message').text('Show article failed')
+    $('#authenticatedMess').text('Article was not Found')
 }
 
-
+//Edit Get
 const setEditForm = function (response) {
-    console.log(response)
-        $('#title').val(response.article.title)
-        $('#text').val(response.article.text)
-        $('#owner').val(response.article.owner)
-        $('#_id').val(response.article._id)
+    $('#title').val(response.article.title)
+    $('#text').val(response.article.text)
+    $('#owner').val(response.article.owner)
+    $('#_id').val(response.article._id)
 }
 
-const deleteArticleSuccess = function (response) {
-    const oneArticle = (`
-        <h3>${response.article.title}</h3>
-        <h4>${response.article.text}</h4>
-        <p>ID: ${response.article._id}</p>
-        <p>Owner (User's ID): ${response.article.owner}</p>
-    `)
-
-    $('#content').html(oneArticle)
-}
-
-const deleteArticleFailure = function () {
-    $('#message').text('Delete article failed')
-}
-
-const editArticleSuccess = function () {
-    $('#message').text("Successfully edited article")
+//Edit
+const editArticleSuccess = function (response) {
+    const showArticleHtml = showArticleTemplate({ articles: response.articles })
+    $('#content').html(showArticleHtml)
+    $('#authenticatedMess').text('Successfully Edited Article!')
     $("#editModal").modal('hide');
-    
 }
 
 const editArticleFailure = function () {
-    $('#message').text("Edit article failed")
+    $('#authenticatedMess').text("Edit Article Failed")
     $("#editModal").modal('hide');
 }
+
+// Delete
+const deleteArticleSuccess = function (response) {
+    const showArticleHtml = showArticleTemplate({ articles: response.articles })
+    $('#content').html(showArticleHtml)
+    $('#authenticatedMess').text('Successfully Deleted Article!')
+}
+
+const deleteArticleFailure = function () {
+    $('#authenticatedMess').text('Delete Article Failed')
+}
+
 
 module.exports = {
     createArticleSuccess,

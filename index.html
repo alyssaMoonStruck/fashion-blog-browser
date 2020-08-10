@@ -24,19 +24,26 @@
   <body>
     <header>
       <h1>Fashion Blog</h1>
-      <p id="message"></p>
+      <p id="authenticatedMess"></p>
+        <p id="unauthenticatedMess"></p>
       <div id="log-out">
         <button
           type="submit"
-          class="btn btn-secondary"
+          class="btn btn-secondary mt-2 mb-2"
           data-toggle="modal"
           data-target="#mymodal"
         >
           Change Password
         </button>
-        <div class="row mb-3">
           <div class="col-sm-12">
-            <div class="modal fade" id="mymodal">
+            
+            <form id="sign-out">
+              <button type="click" class="btn btn-secondary">Sign Out</button>
+            </form>
+          </div>
+      </div>
+    </header>
+        <div class="modal fade" id="mymodal">
               <div class="modal-dialog">
                 <form id="change-password">
                   <div class="modal-content">
@@ -73,18 +80,9 @@
               </div>
             </div>
 
-            <form id="sign-out">
-              <button type="click" class="btn btn-secondary">Sign Out</button>
-            </form>
-          </div>
-        </div>
-      </div>
-    </header>
-
     <div id="unauthenticated">
       <div class="container text-center">
         <h3>Login</h3>
-        <p id="message1"></p>
         <div class="row mb-3">
           <div class="offset-sm-3 col-sm-6">
             <form id="sign-in" class="justify-content-center">
@@ -145,6 +143,7 @@
         </div>
       </div>
     </div>
+  </p>
 
     <div id="authenticated"> 
       <div class="container mt-3 justify-content-center">

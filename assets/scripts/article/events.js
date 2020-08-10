@@ -2,29 +2,35 @@ const getFormFields = require("../../../lib/get-form-fields");
 const api = require("./api");
 const ui = require("./ui");
 
-const onArticleCreate = (event) => {
-    event.preventDefault();
-    const form = event.target;
-    const formData = getFormFields(form);
-    api.createArticle(formData)
-        .then(onArticleIndex)
-        .catch(ui.createArticleFailure);
-};
-
 const onArticleIndex = () => {
     api.getAllArticles()
         .then(ui.indexArticleSuccess)
         .catch(ui.indexArticleFailure);
 };
 
-const onArticleShow = (event) => {
+const onArticleCreate = (event) => {
     event.preventDefault();
-
     const form = event.target;
     const formData = getFormFields(form);
-    api.getArticle(formData.article.id)
-        .then(ui.showArticleSuccess)
-        .catch(ui.showArticleFailure);
+    api.createArticle(formData)
+        .then(()=>{
+            api.getAllArticles()
+                .then(ui.createArticleSuccess)
+        })
+        .catch(ui.createArticleFailure);
+};  
+
+
+const onArticleShow = () => {
+    let searchTerm = $('#search-box').val()
+    if ( searchTerm === '') {
+        onArticleIndex()
+    } else {
+        api.getArticle(searchTerm)
+            .then(ui.showArticleSuccess)
+            .catch(ui.showArticleFailure);
+    }
+
 };
 
 const onArticleEditGet = (event) => {
@@ -39,9 +45,9 @@ const onArticleEdit = (event) => {
     const form = event.target;
     const formData = getFormFields(form);
     api.editArticle(formData)
-        .then(() => {
-            ui.editArticleSuccess();
-            onArticleIndex();
+        .then(()=>{
+            api.getAllArticles()
+                .then(ui.editArticleSuccess)
         })
         .catch(ui.editArticleFailure);
 };
@@ -49,32 +55,19 @@ const onArticleEdit = (event) => {
 const onArticleDelete = (event) => {
     const articleId = $(event.target).data("id");
     api.deleteArticle(articleId)
-        .then(onArticleIndex)
+        .then(()=>{
+            api.getAllArticles()
+                .then(ui.deleteArticleSuccess)
+        })
         .catch(ui.deleteArticleFailure);
 };
 
-const onArticleSearch = (event) => {
-    const searchTerm = event.target.value
-    if ( searchTerm == '') {
-        onArticleIndex()
-    } else {
-        api.getArticle(searchTerm)
-        .then(ui.showArticleSuccess)
-        .catch(ui.showArticleFailure)
-    }
-
-}
-
-const onGetOneArticle = function (event) {
-    api.getAllArticles(articles.id)
-        .then()
-        .catch()
-    }
 
 const addHandler = () => {
     $("#content").on("click", ".delete-article", onArticleDelete);
     $("#content").on("click", ".edit-article", onArticleEditGet);
-    $("#content").on("change","#search-box", onArticleSearch);
+    $("#content").on("click", "#article-show", onArticleShow);
+
 };
 
 module.exports = {
@@ -84,5 +77,4 @@ module.exports = {
     onArticleDelete,
     addHandler,
     onArticleEdit,
-    onGetOneArticle
 };

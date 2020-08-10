@@ -5,7 +5,7 @@ const store = require('../store')
 const createArticle = function (formData) {
 return $.ajax({
     headers: {
-    Authorization: 'Bearer ' + store.user.token
+        Authorization: 'Bearer ' + store.user.token
     },
     url: config.apiUrl + '/articles',
     method: 'POST',
@@ -35,7 +35,6 @@ return $.ajax({
 }
 
 const editArticle = function (formData) {
-    console.log(formData)
     const article = { 
         article: formData
     }

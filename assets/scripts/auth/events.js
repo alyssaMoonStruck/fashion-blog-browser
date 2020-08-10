@@ -31,7 +31,6 @@ const onSignIn = function(event) {
 }
 
 const onChangePassword = function(event) {
-    console.log(event.target)
     event.preventDefault()
     const form = event.target
     const formInfo = getFormFields(form)
