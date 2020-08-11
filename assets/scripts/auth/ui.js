@@ -3,7 +3,7 @@ const store = require('../store')
 
 const signUpSuccess = function (data) { 
     $('#authenticated').hide()
-    $('#log-out').hide()
+    
     $('form').trigger('reset')
     $('#unauthenticatedMess').text('Successfully Signed Up!')
     store.user = data.user
@@ -17,7 +17,6 @@ const signInSuccess = function (data) {
     store.user = data.user
     $('#authenticatedMess').text('Successfully Signed In!')
     $('#authenticated').show()
-    $('#log-out').show()
     $('#unauthenticated').hide()
     
     
@@ -26,7 +25,6 @@ const signInSuccess = function (data) {
 
 const signInFailure = function (error) {
     $('#authenticated').hide()
-    $('#log-out').hide()
     $('#unauthenticatedMess').text('Failed to Sign In')
 }
 
@@ -46,7 +44,6 @@ const signOutSuccess = function (data) {
     $('#unauthenticatedMess').text('Successfully Signed Out!')
     $('#unauthenticated').show()
     $('#authenticated').hide()
-    $('#log-out').hide()
 }
 
 const signOutFailure = function (error) {
@@ -54,7 +51,6 @@ const signOutFailure = function (error) {
     store
     store.user.token
     $('#authenticated').show()
-    $('#log-out').hide()
     $('#unauthenticated').hide()
 }
 

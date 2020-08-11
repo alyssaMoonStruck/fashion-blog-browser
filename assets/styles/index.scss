@@ -16,17 +16,7 @@ header{
     
     
 }
-#authenticatedMess {
-    justify-content: center;
-    align-items: center;
 
-
-}
-
-#authenticatedMess{
-    justify-content: center;
-    align-items: center;
-}
 
 #log-out {
     position: relative;
@@ -59,16 +49,27 @@ header{
 
     #unauthenticated {
         font-family: 'Playfair Display SC', serif;
-        display: flex;
+        text-align: center;
         justify-content: center;
     }
 
     #authenticated {
         font-family: 'Sorts Mill Goudy', serif;
-        display: flex;
         justify-content: center;
     }
 
+    #authenticatedMess {
+        
+        text-align: center;
+    }
+
+    #changeP {
+        width: inherit;
+    }
+
+    #out {
+        width: inherit;
+    }
     button {
             transition-duration: 0.2s;
             box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);

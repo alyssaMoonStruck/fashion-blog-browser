@@ -5,7 +5,6 @@ const articleEvents = require('./article/events')
 
 $(() => {
   $('#authenticated').hide()
-  $('#log-out').hide()
 
   $('#sign-up').on('submit', authEvents.onSignUp)
   $('#sign-in').on('submit', authEvents.onSignIn)
