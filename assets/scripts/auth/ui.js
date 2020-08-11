@@ -33,10 +33,12 @@ const signInFailure = function (error) {
 const changePasswordSuccess = function (data) {
     $('form').trigger('reset')
     $('#authenticatedMess').text('Successfully Changed Password!')
+    $("#mymodal").modal('hide');
 }
 
 const changePasswordFailure = function (error) {
     $('#authenticatedMess').text('Failed to Change Password')
+    $("#mymodal").modal('hide');
 }
 
 const signOutSuccess = function (data) {
