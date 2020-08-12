@@ -1,10 +1,12 @@
 @import '~bootstrap/scss/bootstrap';
 
 body {
-    background: rgb(238,174,202);
-    background: radial-gradient(circle, rgba(238,174,202,1) 0%, rgba(148,187,233,1) 100%);
+    // background: rgb(238,174,202);
+    // background: radial-gradient(circle, rgba(238,174,202,1) 0%, rgba(148,187,233,1) 100%);
+    background-image: url(https://images.pexels.com/photos/1210484/pexels-photo-1210484.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260);
     height: 100vh;
     padding: 0;
+    color: whitesmoke;
 }
 
 header{
