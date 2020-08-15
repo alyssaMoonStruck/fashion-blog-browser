@@ -35,6 +35,7 @@ const changePasswordSuccess = function (data) {
 }
 
 const changePasswordFailure = function (error) {
+    $('form').trigger('reset')
     $('#authenticatedMess').text('Failed to Change Password')
     $("#mymodal").modal('hide');
 }

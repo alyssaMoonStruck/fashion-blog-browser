@@ -42,7 +42,7 @@ const showArticleFailure = function () {
 const setEditForm = function (response) {
     $('#title').val(response.article.title)
     $('#text').val(response.article.text)
-    $('#owner').val(response.article.owner)
+    $('#ownerId').val(response.article.ownerId)
     $('#_id').val(response.article._id)
 }
 

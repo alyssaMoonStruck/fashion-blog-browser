@@ -49,7 +49,7 @@ const editArticle = function (formData) {
 }
 
 const deleteArticle = function (id) {
-    var token = store.user.token
+    const token = store.user.token
     return $.ajax({
         headers: {
             Authorization: 'Bearer ' + token 

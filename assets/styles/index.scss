@@ -6,7 +6,7 @@ body {
     background-image: url(https://images.pexels.com/photos/1210484/pexels-photo-1210484.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260);
     height: 100vh;
     padding: 0;
-    color: whitesmoke;
+    //color: whitesmoke;
 }
 
 header{
@@ -53,20 +53,27 @@ header{
         font-family: 'Playfair Display SC', serif;
         text-align: center;
         justify-content: center;
+        color: whitesmoke;
     }
 
     #authenticated {
         font-family: 'Sorts Mill Goudy', serif;
         justify-content: center;
+        
+
+    }
+
+    #form-group {
+        color: whitesmoke;
     }
 
     #authenticatedMess {
-        
+        color: whitesmoke;
         text-align: center;
     }
 
     #changeP {
-        width: inherit;
+        //width: inherit;
     }
 
     #out {

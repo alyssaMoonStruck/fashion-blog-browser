@@ -2,8 +2,8 @@
 
 ## Important Links
 
+* [Fashion Blog API](https://github.com/alyssaMoonStruck/fashion-blog)
 * [Fashion Blog](https://alyssamoonstruck.github.io/fashion-blog-browser/)
-* [Heroku Server](https://floating-beyond-78379.herokuapp.com/)
 
 * [Fashion - The New York Times](https://www.nytimes.com/section/fashion)
 * [Vogue Business](https://www.voguebusiness.com/technology)
